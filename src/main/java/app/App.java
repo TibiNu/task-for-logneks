@@ -1,4 +1,7 @@
-package graph;
+package app;
+
+import graph.OrientedGraph;
+import graph.Solver;
 
 import java.io.*;
 import java.util.ArrayList;

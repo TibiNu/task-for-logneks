@@ -81,7 +81,7 @@ public class Solver<T> {
         return true;
     }
 
-    public boolean cyclesIsEqual(ArrayList<T> firstCycle, ArrayList<T> secondCycle) {
+    protected boolean cyclesIsEqual(ArrayList<T> firstCycle, ArrayList<T> secondCycle) {
         if (firstCycle.size() != secondCycle.size()) return false;
         if (firstCycle.size() == 0) return true;
         int firstIndex = 0;
