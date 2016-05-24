@@ -16,8 +16,9 @@ public class App
             e.printStackTrace();
         }
         OrientedGraph<Integer> graph = new OrientedGraph<Integer>();
+        BufferedReader fileIn = null;
         try {
-            BufferedReader fileIn = new BufferedReader(new FileReader(fileName));
+            fileIn = new BufferedReader(new FileReader(fileName));
             String in = fileIn.readLine();
             while (in != null) {
                 String[] numbers = in.split(" ");
@@ -26,7 +27,7 @@ public class App
                     Integer second = Integer.parseInt(numbers[1]);
                     graph.addEdge(first,second);
                 }
-                catch (IllegalArgumentException e) {
+                catch (Exception e) {
 
                 }
                 in = fileIn.readLine();
@@ -35,6 +36,13 @@ public class App
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+                fileIn.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         Solver<Integer> solver = new Solver<Integer>();
         for (ArrayList<Integer> integers : solver.findCycles(graph)) {

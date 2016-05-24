@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by HP on 19.05.2016.
+ * Class oriented graph
  */
 public class OrientedGraph<T> {
 
@@ -31,6 +31,7 @@ public class OrientedGraph<T> {
 
     public void addEdge(T beginVertex, T endVertex) {
         addVertex(endVertex);
+        if (beginVertex.equals(endVertex)) return;
         if (!hasVertex(beginVertex)) {
             ArrayList<T> endVertexes = new ArrayList<T>();
             endVertexes.add(endVertex);
